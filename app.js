@@ -5,16 +5,29 @@ const amigos = [];
 
 // Función para agregar un amigo
 function agregarAmigo() {
-    
+
     const inputAmigo = document.getElementById("amigo");
     const nombre = inputAmigo.value.trim();
 
     if (nombre === "") {
         alert("Por favor, inserte un nombre.");
-        return; 
+        return;
     }
     amigos.push(nombre);
 
     inputAmigo.value = "";
+}
+
+function mostrarAmigos() {
+    
+    const listaAmigos = document.getElementById("listaAmigos");
+
+    listaAmigos.innerHTML = "";
+
+    for (let i = 0; i < amigos.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = amigos[i];
+        listaAmigos.appendChild(li);
+    }
 }
 
